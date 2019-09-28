@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="HeadFirst__AStarrySky.View.BeesOnAStarryNight"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HeadFirst__AStarrySky.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:viewmodel="using:HeadFirst__AStarrySky.ViewModel">
+
+    <Page.Resources>
+        <viewmodel:BeeStarViewModel x:Name="viewModel"/>
+    </Page.Resources>
+
+    <Grid>
+        <ItemsControl DataContext="{StaticResource viewModel}"
+                      ItemsSource="{Binding Path=Sprites}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas Background="Blue" SizeChanged="SizeChangedHandler"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
+    </Grid>
+</Page>
